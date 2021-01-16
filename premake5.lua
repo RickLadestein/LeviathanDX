@@ -78,11 +78,8 @@ project "Sandbox"
 	includedirs
 	{
 		"%{prj.name}/external/include",
-		"Leviathan/src",
-		"Leviathan/external/include",
-		"Leviathan/external/Glad/include",
-		"Leviathan/external/Glfw/include",
-		"C:/Program Files/boost/boost_1_74_0"
+		"LeviathanDX/include",
+		"LeviathanDX/external/include",
 	}
 	
 	defines

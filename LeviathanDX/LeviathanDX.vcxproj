@@ -96,6 +96,12 @@
       <AdditionalLibraryDirectories>external\libs\x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Window.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
