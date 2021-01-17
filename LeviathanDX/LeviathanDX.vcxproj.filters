@@ -4,17 +4,53 @@
     <Filter Include="include">
       <UniqueIdentifier>{89AF369E-F58E-B539-FEA6-40106A051C9B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\Leviathan">
+      <UniqueIdentifier>{14F47718-800A-76AE-C981-01D035D74636}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Leviathan\Core">
+      <UniqueIdentifier>{ECC4B057-D8BE-D9A9-C12B-70BAADC43F16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Leviathan\Util">
+      <UniqueIdentifier>{E1B7BA57-CDB1-E3A9-B61E-7ABAA2B74916}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Leviathan">
+      <UniqueIdentifier>{B8CC2374-248D-9FAA-EDC7-E8275947E486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Leviathan\Core">
+      <UniqueIdentifier>{10A4110F-FC87-D264-65E8-CCB751EBBCE6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Window.h">
+    <ClInclude Include="include\Leviathan\Core\Event.h">
+      <Filter>include\Leviathan\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Leviathan\Core\NativeWindow.h">
+      <Filter>include\Leviathan\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Leviathan\Core\Window.h">
+      <Filter>include\Leviathan\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Leviathan\Util\Delegate.h">
+      <Filter>include\Leviathan\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Leviathan\Util\MultiDelegate.h">
+      <Filter>include\Leviathan\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\WindowsMessageMap.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Window.cpp">
+    <ClCompile Include="src\Leviathan\Core\NativeWindow.cpp">
+      <Filter>src\Leviathan\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Leviathan\Core\Window.cpp">
+      <Filter>src\Leviathan\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WindowsMessageMap.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

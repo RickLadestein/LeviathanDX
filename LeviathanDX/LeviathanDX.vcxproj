@@ -57,7 +57,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;LV_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -76,7 +76,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;LV_RELEASE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -97,10 +97,17 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\Window.h" />
+    <ClInclude Include="include\Leviathan\Core\Event.h" />
+    <ClInclude Include="include\Leviathan\Core\NativeWindow.h" />
+    <ClInclude Include="include\Leviathan\Core\Window.h" />
+    <ClInclude Include="include\Leviathan\Util\Delegate.h" />
+    <ClInclude Include="include\Leviathan\Util\MultiDelegate.h" />
+    <ClInclude Include="include\WindowsMessageMap.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Window.cpp" />
+    <ClCompile Include="src\Leviathan\Core\NativeWindow.cpp" />
+    <ClCompile Include="src\Leviathan\Core\Window.cpp" />
+    <ClCompile Include="src\WindowsMessageMap.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

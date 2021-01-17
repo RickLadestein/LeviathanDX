@@ -36,7 +36,6 @@ project "LeviathanDX"
 	
 	includedirs
 	{
-		"%{prj.name}/src",
 		"%{prj.name}/include"
 	}
 	
