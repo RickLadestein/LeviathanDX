@@ -4,6 +4,7 @@
 bool initialized = false;
 WNDCLASSEX native_window_class;
 const wchar_t* className = L"BaseWindowClass";
+DWORD window_style = WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU;
 
 Window::Window()
 {
@@ -42,11 +43,13 @@ void Window::Init()
 
 void Window::Create(int width, int height, std::string title)
 {
+	this->width = width;
+	this->height = height;
 	native_window = CreateWindowEx(
 		0, 
 		className, 
 		window_title, 
-		WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU, 
+		window_style,
 		CW_USEDEFAULT, 
 		CW_USEDEFAULT, 
 		width, 
@@ -58,10 +61,10 @@ void Window::Create(int width, int height, std::string title)
 
 	if (!native_window) {
 		std::cout << "Something went wrong when creating HWND\n";
-		return;
 	}
-
-	ShowWindow(native_window, SW_SHOW);
+	else {
+		ShowWindow(native_window, SW_SHOW);
+	}
 }
 
 void Window::Run()
@@ -81,6 +84,46 @@ void Window::SetVisibility(bool visible)
 	else {
 		ShowWindow(native_window, SW_HIDE);
 	}
+}
+
+void Window::SetPosition(int x, int y)
+{
+	if (this->native_window) {
+		unsigned int size_x = 0, size_y = 0;
+		this->GetSize(&size_x, &size_y);
+		SetWindowPos(this->native_window, HWND_NOTOPMOST, x, y, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
+	}
+	else {
+		throw new std::exception("Could not set window position: native window is not initialized");
+	}
+}
+
+void Window::SetSize(int width, int height)
+{
+	if (this->native_window) {
+		unsigned int pos_x = 0, pos_y = 0;
+		this->GetPosition(&pos_x, &pos_y);
+		SetWindowPos(this->native_window, HWND_NOTOPMOST, pos_x, pos_y, width, height, SWP_NOZORDER);
+	}
+	else {
+		throw new std::exception("Could not set window position: native window is not initialized");
+	}
+}
+
+void Window::GetPosition(unsigned int* x_pos, unsigned int* y_pos)
+{
+	RECT rect;
+	GetWindowRect(native_window, &rect);
+	*x_pos = (unsigned int)rect.left;
+	*y_pos = (unsigned int)rect.top;
+}
+
+void Window::GetSize(unsigned int* size_x, unsigned int* size_y)
+{
+	RECT rect;
+	GetWindowRect(native_window, &rect);
+	*size_x = (unsigned int)(rect.right - rect.left);
+	*size_y = (unsigned int)(rect.bottom - rect.top);
 }
 
 
